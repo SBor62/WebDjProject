@@ -1,0 +1,11 @@
+<header class="bg-light py-3 mb-4 shadow-sm">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <h1 class="h3 mb-3 mb-md-0 text-center text-md-start">Обзор БПЛА</h1>
+    <nav class="d-flex gap-2">
+      <a href="{% url 'home' %}" class="btn btn-primary">Главная</a>
+      <a href="{% url 'multirotor' %}" class="btn btn-success">Мультироторные</a>
+      <a href="{% url 'fixed-wing' %}" class="btn btn-info text-white">Самолётные</a>
+      <a href="{% url 'helicopter' %}" class="btn btn-warning">Вертолётные</a>
+    </nav>
+  </div>
+</header>
