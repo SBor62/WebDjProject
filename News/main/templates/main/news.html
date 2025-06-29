@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <!-- Основной контент -->
+    {% if news %}
+        <h2 class="mb-4">Последние новости</h2>
+        {% for item in news %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.content }}</p>
+                <div class="card-footer bg-transparent">
+                <div class="meta">
+                    <span>Опубликовано: {{ item.published_date|date:"d.m.Y H:i" }}</span>
+                    <span> | Автор: {{ item.author.get_full_name|default:item.author.username }}</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning">
+            Новостей пока нет. <a href="{% url 'add_news' %}" class="alert-link">Добавить первую новость</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}dblock %}
