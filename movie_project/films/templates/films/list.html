@@ -1,0 +1,27 @@
+{% extends 'films/base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Список фильмов</h1>
+    <a href="{% url 'add_film' %}" class="btn btn-primary mb-4">Добавить фильм</a>
+    
+    <div class="row">
+        {% for film in films %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ film.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Описание:</h6>
+                    <p class="card-text">{{ film.description }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">Отзыв:</h6>
+                    <p class="card-text">{{ film.review }}</p>
+                    <small class="text-muted">Добавлено: {{ film.created_at }}</small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">Фильмов пока нет.</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
